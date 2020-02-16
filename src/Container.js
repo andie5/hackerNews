@@ -2,12 +2,18 @@ import React from "react";
 
 const Container = () => {
   return (
-    <div>
-      <div>Hacker News | past | comments | ask | show | jobs | submit</div>
+    <div style={{ padding: 10 }}>
+      <div style={{ background: "#ff6600" }}>
+        <b>Hacker News</b> new | past | comments | ask | show | jobs | submit
+      </div>
       <div>
-        {hackerNewsData.map(item => (
-          <NewsItem key={item.id} item={item} />
-        ))}
+        <ul>
+          {hackerNewsData.map(item => (
+            <li>
+              <NewsItem key={item.id} item={item} />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
@@ -18,10 +24,15 @@ const NewsItem = ({
 }) => {
   return (
     <div>
-      <div>
-        {title} ({domainName})
+      <div style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
+        {title}{" "}
+        <a href="#">
+          <span style={{ color: "#828282", fontSize: "4vh" }}>
+            ({domainName})
+          </span>
+        </a>
       </div>
-      <div>
+      <div style={{ color: "#828282", fontSize: "4vh" }}>
         {points} points by {username} {date} | {numberOfComments} comments
       </div>
     </div>
